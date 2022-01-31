@@ -336,12 +336,27 @@ header nav .icons i {
     padding: 9px 22px;
     font-size: 0.875em;
     font-weight: bold;
-    transition: 0.1s linear;
+    position: relative;
+    z-index: 1;
 }
 
-.intro>.container .main-text a:hover {
-    background-color: #333;
-    border-color: #333;
+.intro>.container .main-text a::before {
+    content: "";
+    background-color: var(--Cyan);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: transform 0.25s;
+    transform: scaleX(0);
+    transform-origin: right;
+    z-index: -1;
+}
+
+.intro>.container .main-text a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
 }
 
 /* Steps */
